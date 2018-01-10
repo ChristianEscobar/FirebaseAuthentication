@@ -41,6 +41,9 @@ authentication.onAuthStateChanged(function(user) {
 
 function userSignout(){
   authentication.signOut().then(function() {
+    $("#user-email").text("");
+    $("#user-uid").text("");
+
     console.log("You have signed out");
   }).catch(function(error) {
     var errorCode = error.code;

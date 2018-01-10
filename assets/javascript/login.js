@@ -31,23 +31,23 @@ $("#user-login-btn").on("click", function(event){
   loginUser(userEmail, password);
 });
 
-$("#fb-login-button").on("click", function(){
+/* $("#fb-login-button").on("click", function(){
   console.log("click");
 
   loginWithFacebook();
-});
+}); */
 
 function createUser(userEmail, password) {
 	// check out:  https://hackernoon.com/promises-and-error-handling-4a11af37cb0e
 	authentication.createUserWithEmailAndPassword(userEmail, password)
 	.then(() => {
-		createNotification("<strong>Create Account</strong>", "success", "glyphicon glyphicon-ok-sign", "middle", "Account successfully created.");
+		createNotification("<strong>Create Account</strong>", "success", "glyphicon glyphicon-ok-sign", "top", "Account successfully created.");
 	})
 	.catch(function(error) {
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		
-		createNotification("<strong>Create Account</strong>", "danger", "glyphicon glyphicon-exclamation-sign", "middle", error.message);
+		createNotification("<strong>Create Account</strong>", "danger", "glyphicon glyphicon-exclamation-sign", "top", error.message);
 	});
 }
 
@@ -65,7 +65,7 @@ function loginUser(userEmail, password) {
   });
 }
 
-function loginWithFacebook() {
+/* function loginWithFacebook() {
   var provider = new firebase.auth.FacebookAuthProvider();
 
   authentication.signInWithPopup(provider).then(function(result) {
@@ -87,25 +87,28 @@ function loginWithFacebook() {
 
     console.log(errorCode + " " + errorMessage);
   });
-}
+} */
 
 function createNotification(title, type, icon, from, message) {
 	$.notify({
 		// options
 		icon: icon,
 		title: title,
-		message: message
+		message: message,
 	},{
 		// settings
 		type: type,
 		animate: {
 			enter: "animated fadeInDown",
-			exit: "animated fadeOutUp"
+			exit: "animated fadeOutUp",
 		},
-		placement: {
-  		from: from,
-  		align: "left"
-	  }
+		  placement: {
+  		  from: from,
+  		  align: "left",
+	  },
+		  offset: 20,
+		  spacing: 10,
+      z_index: 1031,
 	});
 }
 
