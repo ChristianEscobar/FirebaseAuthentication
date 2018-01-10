@@ -31,7 +31,7 @@ $("#user-login-btn").on("click", function(event){
   loginUser(userEmail, password);
 });
 
-$("#fb-login-btn").on("click", function(){
+$("#fb-login-button").on("click", function(){
   console.log("click");
 
   loginWithFacebook();
