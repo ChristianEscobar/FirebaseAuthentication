@@ -25,6 +25,38 @@
   <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <!-- Facebook SDK -->
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '192052548201142',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v2.11'
+          });
+            
+          FB.AppEvents.logPageView();   
+            
+        };
+      
+        (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=192052548201142';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -47,11 +79,12 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">Login Using Google</h3>
+      <h3 class="panel-title">Login Using Facebook</h3>
     </div>
     <div class="panel-body">
       <div>
-        <input id="google-login-btn" type="image" src="assets/images/google_login.png">    
+          <input type="submit" id="fb-login-btn" value="Login Using Facebook">
+          <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>    
       </div>
     </div>
   </div>
@@ -76,8 +109,6 @@
         </div>
     </div>
   </div>
-
-
 
 	<script type="text/javascript" src="assets/javascript/login.js"></script>
 </body>
